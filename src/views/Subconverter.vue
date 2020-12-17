@@ -263,7 +263,7 @@ export default {
               {
                 label: "YojigenConfig(Based from ACL4SSR)",
                 value:
-                  "https://cdn.jsdelivr.net/gh/mouyase/ClashRuleSet-Yojigen@master/config.ini"
+                  "https://raw.githubusercontent.com/mouyase/ClashRuleSet-Yojigen/main/config.ini"
               }
             ]
           }
@@ -322,7 +322,7 @@ export default {
   },
   mounted() {
     this.form.clientType = "clash";
-    this.form.remoteConfig = "https://cdn.jsdelivr.net/gh/mouyase/ClashRuleSet-Yojigen@master/config.ini";
+    this.form.remoteConfig = "https://raw.githubusercontent.com/mouyase/ClashRuleSet-Yojigen/main/config.ini";
     this.form.customBackend = "https://subcon.dlj.tf/sub?";
     this.notify();
     this.getBackendVersion();
