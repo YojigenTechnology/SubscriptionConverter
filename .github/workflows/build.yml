@@ -1,33 +1,28 @@
-name: Build
+name: Build&Deploy
 
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
-
   build:
-    name: Build
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [10.x]
-
     steps:
-    - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2.1.1
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@v2
 
-    - name: Get dependencies and build
-      run: |
-        yarn install
-        yarn build
-    - name: Upload
-      uses: actions/upload-artifact@v1
-      with:
-        name: dist
-        path: dist/
+      - name: Build
+        run: |
+          npm i
+          npm run build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
