@@ -248,7 +248,7 @@ export default {
           // Surfboard: "surfboard",
           // Loon: "loon",
           // SSAndroid: "sssub",
-          // V2Ray: "v2ray",
+          V2Ray: "v2ray",
           // ss: "ss",
           // ssr: "ssr",
           // ssd: "ssd",
